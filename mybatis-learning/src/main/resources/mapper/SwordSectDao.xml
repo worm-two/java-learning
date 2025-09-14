@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.taoyuan.learning.mybatis.dao.SwordSectDao">
 
-    <resultMap type="com.taoyuan.learning.cloud.dream.lake.SwordSect" id="SwordSectMap">
+    <resultMap type="com.taoyuan.learning.entity.cloud.dream.lake.SwordSect" id="SwordSectMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="name" column="name" jdbcType="VARCHAR"/>
         <result property="alias" column="alias" jdbcType="VARCHAR"/>

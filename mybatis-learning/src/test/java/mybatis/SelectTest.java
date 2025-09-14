@@ -1,6 +1,6 @@
 package mybatis;
 
-import com.taoyuan.learning.cloud.dream.lake.SwordSect;
+import com.taoyuan.learning.entity.cloud.dream.lake.SwordSect;
 import com.taoyuan.learning.mybatis.Mapper.SwordSectMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

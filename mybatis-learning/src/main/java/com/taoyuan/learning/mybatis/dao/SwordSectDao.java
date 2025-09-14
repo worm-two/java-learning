@@ -1,6 +1,6 @@
 package com.taoyuan.learning.mybatis.dao;
 
-import com.taoyuan.learning.cloud.dream.lake.SwordSect;
+import com.taoyuan.learning.entity.cloud.dream.lake.SwordSect;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.data.domain.Pageable;
 

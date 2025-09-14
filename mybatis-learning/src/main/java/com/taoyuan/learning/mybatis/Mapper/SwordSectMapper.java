@@ -1,7 +1,7 @@
 package com.taoyuan.learning.mybatis.Mapper;
 
 
-import com.taoyuan.learning.cloud.dream.lake.SwordSect;
+import com.taoyuan.learning.entity.cloud.dream.lake.SwordSect;
 
 import java.util.List;
 

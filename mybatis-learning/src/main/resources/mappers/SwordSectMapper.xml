@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.taoyuan.learning.mybatis.Mapper.SwordSectMapper">
 
-    <select id="selectAll" resultType="com.taoyuan.learning.cloud.dream.lake.SwordSect">
+    <select id="selectAll" resultType="com.taoyuan.learning.entity.cloud.dream.lake.SwordSect">
         select * from sword_sect
     </select>
 </mapper>

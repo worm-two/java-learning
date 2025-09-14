@@ -1,4 +1,4 @@
-package com.taoyuan.learning.cloud.dream.lake;
+package com.taoyuan.learning.entity.cloud.dream.lake;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

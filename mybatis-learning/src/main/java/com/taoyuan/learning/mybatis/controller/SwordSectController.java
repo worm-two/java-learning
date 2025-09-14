@@ -1,6 +1,6 @@
 package com.taoyuan.learning.mybatis.controller;
 
-import com.taoyuan.learning.cloud.dream.lake.SwordSect;
+import com.taoyuan.learning.entity.cloud.dream.lake.SwordSect;
 import com.taoyuan.learning.mybatis.service.SwordSectService;
 import jakarta.annotation.Resource;
 import org.springframework.data.domain.Page;
