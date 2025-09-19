@@ -3,6 +3,7 @@ package com.taoyuan.learning.mybatis.controller;
 import com.taoyuan.learning.entity.cloud.dream.lake.SwordSect;
 import com.taoyuan.learning.mybatis.service.SwordSectService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -54,7 +55,7 @@ public class SwordSectController {
      * @return 新增结果
      */
     @PostMapping
-    public ResponseEntity<SwordSect> add(SwordSect swordSect) {
+    public ResponseEntity<SwordSect> add(SwordSect swordSect, HttpServletRequest request) {
         return ResponseEntity.ok(this.swordSectService.insert(swordSect));
     }
 
