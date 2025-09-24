@@ -1,0 +1,38 @@
+server:
+  port: 5958
+
+
+spring:
+  security:
+    user:
+      name: root
+      password: root
+  datasource: # 配置数据源类型
+      type: com.zaxxer.hikari.HikariDataSource
+      #数据库配置
+      url: jdbc:mysql://192.168.2.60:3306/mybatis_plus?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: 192.168.2.70
+      port: 6379
+
+
+# 配置MyBatis日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    cache-enabled: true
+  global-config:
+    db-config:
+      # 配置MyBatis-Plus操作表的默认前缀
+      # table-prefix: t_
+      # 配置MyBatis-Plus的主键策略
+      id-type: auto
+      logic-delete-field: isDeleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0

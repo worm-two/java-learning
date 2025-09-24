@@ -18,6 +18,9 @@
         <module>mybatis-learning</module>
         <module>entity-api</module>
         <module>mybatisplus-learning</module>
+        <module>springsecurity-learning</module>
+        <module>mapper-api</module>
+        <module>springboot-learning</module>
     </modules>
 
     <properties>
