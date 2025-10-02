@@ -4,6 +4,8 @@ import com.taoyuan.learning.entity.mybatis.plus.SystemUser;
 import com.taoyuan.learning.springsecurity.service.LoginService;
 import com.taoyuan.sun.common.global.result.Result;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +36,8 @@ public class LoginController {
     }
 
     @GetMapping("logout")
-    public Result<String> logout() {
-        return loginService.logout();
+    public Result<String> logout(HttpServletRequest request, HttpServletResponse response) {
+        return loginService.logout(request,response);
     }
 
 

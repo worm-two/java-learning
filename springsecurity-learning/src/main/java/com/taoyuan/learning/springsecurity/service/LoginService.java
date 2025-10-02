@@ -5,12 +5,15 @@ import com.taoyuan.learning.springsecurity.config.SystemUserDetails;
 import com.taoyuan.learning.springsecurity.util.JwtUtil;
 import com.taoyuan.sun.common.global.result.Result;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Service;
 
 /**
@@ -52,7 +55,7 @@ public class LoginService {
         return Result.success(systemUser).other(jwt);
     }
 
-    public Result<String> logout() {
+    public Result<String> logout(HttpServletRequest request, HttpServletResponse response) {
         // 一 获取SecurityContextHolder中的用户id
        UsernamePasswordAuthenticationToken token= (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
         SystemUserDetails principal = (SystemUserDetails) token.getPrincipal();
@@ -60,12 +63,16 @@ public class LoginService {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
 
+        if (authentication != null) {
+            // 清除上下文
+            new SecurityContextLogoutHandler().logout(request,response,authentication);
 
-        Long id = principal.getSystemUser().getId();
+            Long id = principal.getSystemUser().getId();
+            String redisKey="login:"+id;
+            redisTemplate.delete(redisKey);
 
-        String redisKey="login:"+id;
+        }
 
-        redisTemplate.delete(redisKey);
 
 
         // 二 删除redis中的数据

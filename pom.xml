@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.taoyuan.learning</groupId>
+    <groupId>learning.taoyuan.com</groupId>
     <artifactId>java-learning</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -21,6 +21,7 @@
         <module>springsecurity-learning</module>
         <module>mapper-api</module>
         <module>springboot-learning</module>
+        <module>common-api</module>
     </modules>
 
     <properties>
@@ -30,6 +31,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>sun.taoyuan.com</groupId>
+            <artifactId>common-api</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
@@ -54,6 +60,14 @@
                 <type>pom</type>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version> 2023.0.6</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
 
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -61,6 +75,13 @@
                 <version>3.5.14</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>sun.taoyuan.com</groupId>
+                <artifactId>common-api</artifactId>
+                <version>1.0.0</version>
             </dependency>
 
 
