@@ -2,6 +2,7 @@ package com.taoyuan.learning.springboot.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -30,5 +31,15 @@ public class WebConfig implements WebMvcConfigurer {
                 // 跨域实践
                 .maxAge(3600);
 
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 注册 CORS 拦截器
+        registry.addInterceptor(new CorsInterceptor())
+                // 拦截所有路径
+                .addPathPatterns("/**")
+                // 排除登录和错误页面
+                .excludePathPatterns("/login", "/error");
     }
 }

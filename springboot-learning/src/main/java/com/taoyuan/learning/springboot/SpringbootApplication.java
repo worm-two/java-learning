@@ -1,9 +1,9 @@
 package com.taoyuan.learning.springboot;
 
-import com.taoyuan.learning.springboot.config.CommonConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * @Author: yuming
@@ -11,12 +11,11 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @Description:
  * @Version: 1.0
  */
+@EnableAsync
 @SpringBootApplication
 public class SpringbootApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringbootApplication.class, args);
-        CommonConfig bean = context.getBean(CommonConfig.class);
-        System.out.println("bean = " + bean);
     }
 }
