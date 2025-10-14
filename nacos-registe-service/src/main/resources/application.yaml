@@ -1,0 +1,15 @@
+server:
+  port: 9996
+
+spring:
+  application:
+    name: nacos-register-service
+  cloud:
+    nacos:
+      discovery:
+        register-enabled: true
+        server-addr: 192.168.2.60:8848
+        namespace: e729640f-a406-491b-bc74-690d0aeaaff7
+        username: nacos
+        password: nacos
+        group: CONFIG_GROUP

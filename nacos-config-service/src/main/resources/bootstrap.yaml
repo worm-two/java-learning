@@ -1,0 +1,33 @@
+spring:
+  application:
+    # 服务名称
+    name: nacos-config-service
+  cloud:
+    config:
+      # 允许nacos被本地文件覆盖
+      allow-override: true
+      # nacos不覆盖任何本地文件
+      override-none: true
+      # nacos 覆盖系统属性。注意本地配置文件不是系统属性
+      override-system-properties: true
+    nacos:
+      # Nacos地址
+      server-addr: 192.168.2.60:8848
+      # 账号
+      username: nacos
+      # 密码
+      password: nacos
+      config:
+        # 配置文件类型
+        file-extension: yaml
+        # 命名空间ID
+        namespace: e729640f-a406-491b-bc74-690d0aeaaff7
+        # 自定义文件前缀
+        prefix: ${spring.application.name}
+  config:
+    import:
+      - nacos:nacos-config-service.yaml?group=DEFAULT_GROUP
+      - nacos:common.yaml?group=DEFAULT_GROUP
+
+
+

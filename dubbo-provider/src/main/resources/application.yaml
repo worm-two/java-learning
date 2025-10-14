@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: dubbo-provider-service
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+    logger: slf4j
+  protocol:
+    name: tri
+    port: 50052
+  registry:
+    id: nacos
+    register-mode: instance
+    address: nacos://192.168.2.60:8848?username=nacos&password=nacos
+    parameters:
+      namespace: e729640f-a406-491b-bc74-690d0aeaaff7
+      group: DUBBO-PROVIDER
+

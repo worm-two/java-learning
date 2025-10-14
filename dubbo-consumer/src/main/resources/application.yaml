@@ -1,0 +1,13 @@
+server:
+  port: 9933
+
+dubbo:
+  application:
+    name: dubbo-consumer
+    logger: slf4j
+    qos-port: 33333
+  registry:
+    address: nacos://192.168.2.60:8848?username=nacos&password=nacos
+    parameters:
+      namespace: e729640f-a406-491b-bc74-690d0aeaaff7
+      group: DUBBO-PROVIDER
