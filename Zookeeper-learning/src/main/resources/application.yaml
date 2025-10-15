@@ -1,0 +1,16 @@
+server:
+  port: 9412
+
+
+spring:
+  application:
+    name: zookeeper-demo # 应用名称，用于服务注册
+
+zookeeper:
+  server: 192.168.2.60:2181 # ZooKeeper 服务地址（集群用逗号分隔：host1:2181,host2:2181）
+  session-timeout: 60000 # 会话超时时间（毫秒）
+  connection-timeout: 15000 # 连接超时时间（毫秒）
+  retry:
+    base-sleep-time: 1000 # 重试基础睡眠时间（毫秒）
+    max-retries: 3 # 最大重试次数
+  base-lock-path: /distributed-locks   # 所有锁的根路径
