@@ -1,0 +1,64 @@
+server:
+  port: 8091
+
+console:
+  user:
+    username: seata
+    password: seata
+
+spring:
+  application:
+    name: seata-server
+
+
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    path: ${user.home}/logs/seata
+  extend:
+    logstash-appender:
+      destination: 127.0.0.1:4560
+    kafka-appender:
+      bootstrap-servers: 127.0.0.1:9092
+      topic: logback_to_logstash
+  level:
+    io.seata: info
+
+# 事务存储模式（推荐使用 db）
+store:
+  mode: db
+  db:
+    datasource: druid
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    db-type: mysql
+    url: jdbc:mysql://192.168.2.60:3306/seata?characterEncoding=utf8&connectTimeout=10000&socketTimeout=30000&autoReconnect=true&useUnicode=true&useSSL=false
+    user: root
+    password: root
+    min-conn: 5
+    max-conn: 30
+    global-table: global_table
+    branch-table: branch_table
+    lock-table: lock_table
+    distributed-lock-table: distributed_lock
+    query-limit: 100
+  # 注册中心配置（以 Nacos 为例）
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 192.168.2.60:8848
+      namespace: 56373b81-87d3-4eb8-beca-87ee8e16f857
+      group: SEATA_GROUP
+      cluster: default
+      username: nacos
+      password: nacos
+  # 配置中心（可选）
+  config:
+    type: nacos
+    nacos:
+      server-addr: 192.168.2.60:8848
+      namespace: 56373b81-87d3-4eb8-beca-87ee8e16f857
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+      data-id: seata-server.properties

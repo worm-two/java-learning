@@ -28,6 +28,7 @@
         <module>dubbo-consumer</module>
         <module>dubbo-provider</module>
         <module>Zookeeper-learning</module>
+        <module>seata-learning</module>
     </modules>
 
     <properties>

@@ -1,0 +1,49 @@
+server:
+  port: 9996
+
+spring:
+  application:
+    name: seata-service
+  cloud:
+    nacos:
+      discovery:
+        register-enabled: true
+        server-addr: 192.168.2.60:8848
+        namespace: 56373b81-87d3-4eb8-beca-87ee8e16f857
+        username: nacos
+        password: nacos
+        group: CONFIG_GROUP
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.2.60:3306/cloud_dream_lake?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+
+
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  tx-service-group: my_tx_group
+  data-source-proxy-mode: AT
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 192.168.2.60:8848
+      namespace: 56373b81-87d3-4eb8-beca-87ee8e16f857
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+  config:
+    type: nacos
+    nacos:
+      server-addr: 192.168.2.60:8848
+      namespace: seata
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+#  service:
+#    vgroup-mapping:
+#      my_tx_group: default
+  client:
+    rm:
+      report-success-enable: true  # 上报成功状态
