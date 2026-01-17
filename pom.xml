@@ -29,6 +29,7 @@
         <module>dubbo-provider</module>
         <module>Zookeeper-learning</module>
         <module>seata-learning</module>
+        <module>file-service</module>
     </modules>
 
     <properties>
